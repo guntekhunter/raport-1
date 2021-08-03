@@ -1,5 +1,4 @@
 <?php
-
 /* include autoloader */
 
 require_once 'dompdf/autoload.inc.php';
@@ -15,14 +14,14 @@ use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 include "format_tgl.php";
 
-$connect = mysqli_connect("localhost", "vien4465_root", "yoviefp33", "vien4465_raport");
+$connect = mysqli_connect("localhost", "root", "", "eraport");
 
-	$query1 = mysqli_query($connect, "SELECT * FROM nilai, guru, siswa, kelas, semester, tahun_ajar WHERE nilai.id_guru = guru.nik AND nilai.id_siswa = siswa.nis AND nilai.id_kelas = kelas.id_kelas AND nilai.id_smt = semester.id_smt AND kelas.id_tahun = tahun_ajar.id_tahun AND siswa.nis = '$_POST[tid]'");
-	$row = mysqli_fetch_array($query1);
+$query1 = mysqli_query($connect, "SELECT * FROM nilai, guru, siswa, kelas, semester, tahun_ajar WHERE nilai.id_guru = guru.nik AND nilai.id_siswa = siswa.nis AND nilai.id_kelas = kelas.id_kelas AND nilai.id_smt = semester.id_smt AND kelas.id_tahun = tahun_ajar.id_tahun AND siswa.nis = '$_POST[tid]'");
+$row = mysqli_fetch_array($query1);
 
 
-$html = 
-'<!DOCTYPE html>
+$html =
+	'<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -86,11 +85,11 @@ hr.style{
 <body>
 <div class="row">
 		<div class="col-md-12">
-			<br><br><h3 style="text-align: center;">RAPOR <br>SEKOLAH MENENGAH PERTAMA (SMP)</h3><br><br><br>
-			<center><img src="../../img_user/logo_smp.png" width="250px" ></center>
+			<br><br><h3 style="text-align: center;">RAPOR <br>MADRASAH ALIYAH</h3><br><br><br>
+			<center><img src="../../img_user/logo_man.png" width="250px" ></center>
 			<br><br><br><br>
-			<p align="center"><b>Nama Peserta Didik</b><br><u>'.$row['nama_siswa'].'</u></p>
-			<p align="center"><b>NIS/NISN</b><br><u>'.$row['nis'].'</u></p>
+			<p align="center"><b>Nama Peserta Didik</b><br><u>' . $row['nama_siswa'] . '</u></p>
+			<p align="center"><b>NIS/NISN</b><br><u>' . $row['nis'] . '</u></p>
 			<br><br><br><br>
 			<h4 style="text-align: center;">PEMERINTAH DAERAH KABUPATEN BANJARNEGARA <br>DINAS PENDIDIKAN, PEMUDA DAN OLAHRAGA <h3">SMP NEGERI 3 SUSUKAN</h3><h5">Alamat: Jl. Lapangan Olahraga Susukan. Telp.(0284) 584148</h5></h4><br><br><br><br><br><br><br><br>
 		</div>
@@ -138,47 +137,47 @@ hr.style{
 	<tr >
 		<td width="30px" style="padding:10px;">1. </td>
 		<td width="250px">Nama Peserta didik (Lengkap)</td>
-		<td>: '.$row['nama_siswa'].'</td>
+		<td>: ' . $row['nama_siswa'] . '</td>
 	</tr>
 	<tr style="padding:10px;">
 		<td style="padding:10px;">2. </td>
 		<td> Nomor Induk Siswa Nasional</td>
-		<td>: '.$row['nis'].'</td>
+		<td>: ' . $row['nis'] . '</td>
 	</tr>
 	<tr>
 		<td style="padding:10px;">3. </td>
 		<td> Tempat Tanggal Lahir</td>
-		<td>: '.$row['tempat_lahir'].', '.indonesian_date($row['tgl_lahir']).'</td>
+		<td>: ' . $row['tempat_lahir'] . ', ' . indonesian_date($row['tgl_lahir']) . '</td>
 	</tr>
 	<tr>
 		<td style="padding:10px;">4. </td>
 		<td> Jenis Kelamin</td>
-		<td>: '.$row['jenis_kelamin'].'</td>
+		<td>: ' . $row['jenis_kelamin'] . '</td>
 	</tr>	
 	<tr>
 		<td style="padding:10px;">5. </td>
 		<td> Agama</td>
-		<td>: '.$row['agama'].'</td>
+		<td>: ' . $row['agama'] . '</td>
 	</tr>		
 	<tr>
 		<td style="padding:10px;">6. </td>
 		<td> Alamat Peserta Didik</td>
-		<td>: '.$row['alamat'].'</td>
+		<td>: ' . $row['alamat'] . '</td>
 	</tr>
 	<tr>
 		<td style="padding:10px;">7. </td>
 		<td> Jenis Kelamin</td>
-		<td>: '.$row['jenis_kelamin'].'</td>
+		<td>: ' . $row['jenis_kelamin'] . '</td>
 	</tr>	<br><br>
 	<tr>
 		<td style="padding:10px;">8. </td>
 		<td> Nomor Telp</td>
-		<td>: '.$row['jenis_kelamin'].'</td>
+		<td>: ' . $row['jenis_kelamin'] . '</td>
 	</tr>
 	<tr>
 		<td style="padding:10px;">9. </td>
 		<td> Diterima di Sekolah ini<br> Di kelas</td>
-		<td>: '.$row['nama_kelas'].'</td>
+		<td>: ' . $row['nama_kelas'] . '</td>
 	</tr>
 	<tr>
 		<td style="padding:10px;">10. </td>
@@ -188,17 +187,17 @@ hr.style{
 	<tr>
 		<td></td>
 		<td>a. Ayah</td>
-		<td>: '.$row['nama_bapak'].'</td>
+		<td>: ' . $row['nama_bapak'] . '</td>
 	</tr>			
 	<tr>
 		<td></td>
 		<td>a. Ibu</td>
-		<td>: '.$row['nama_ibu'].'</td>
+		<td>: ' . $row['nama_ibu'] . '</td>
 	</tr>
 	<tr>
 		<td style="padding:10px;">11. </td>
 		<td> Alamat Orang Tua</td>
-		<td>: '.$row['alamat'].'</td>
+		<td>: ' . $row['alamat'] . '</td>
 	</tr>
 	<tr>
 		<td style="padding:10px;">12. </td>
@@ -208,17 +207,17 @@ hr.style{
 	<tr>
 		<td></td>
 		<td>a. Ayah</td>
-		<td>: '.$row['pekerjaan_bapak'].'</td>
+		<td>: ' . $row['pekerjaan_bapak'] . '</td>
 	</tr>			
 	<tr>
 		<td></td>
 		<td>a. Ibu</td>
-		<td>: '.$row['pekerjaan_ibu'].'</td>
+		<td>: ' . $row['pekerjaan_ibu'] . '</td>
 	</tr>
 	<tr>
 		<td></td>
-		<td align="center" style="padding-right:10px;"><br><br><img src="../../img_user/small_'.$row['img_pengguna'].'" width="85px"></td>
-		<td><br><br><p>Susukan, '.date("d M Y").' </p>
+		<td align="center" style="padding-right:10px;"><br><br><img src="../../img_user/small_' . $row['img_pengguna'] . '" width="85px"></td>
+		<td><br><br><p>Susukan, ' . date("d M Y") . ' </p>
 				Kepala Sekolah
 				<br><br><br><br>
 				Winarti Peni Subekti, S.Pd <br>
@@ -237,12 +236,12 @@ hr.style{
 
 			<tr>
 				<td width="100">Nama</td>
-				<td> <u>'.$row['nama_siswa'].'</u> </td>
+				<td> <u>' . $row['nama_siswa'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>NIS</td>
-				<td> <u>'.$row['nis'].'</u> </td>
+				<td> <u>' . $row['nis'] . '</u> </td>
 			</tr>
 		</table>
 		</div>
@@ -250,17 +249,17 @@ hr.style{
 			<table>
 			<tr>
 				<td width="100">Kelas</td>
-				<td> <u>'.$row['nama_kelas'].'</u> </td>
+				<td> <u>' . $row['nama_kelas'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>Semester</td>
-				<td> <u>'.$row['smt'].'</u> </td>
+				<td> <u>' . $row['smt'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>Tahun Pelajaran</td>
-				<td> <u>'.$row['tahun_ajar'].'</u> </td>
+				<td> <u>' . $row['tahun_ajar'] . '</u> </td>
 			</tr>
 			</table>
 		</div></div>
@@ -268,7 +267,7 @@ hr.style{
 		<center><b>CAPAIAN HASIL BELAJAR</b></center>
 		<br>
 		<b>A. Sikap <br></b>';
-		$html .= ' 1.Sikap Sosial <br>
+$html .= ' 1.Sikap Sosial <br>
 		<table class="table table-condensed" border="2px">
 			<thead>
 				<tr>
@@ -278,18 +277,18 @@ hr.style{
 			</thead>
 			<tbody>';
 
-				$query2 = mysqli_query($connect, "SELECT * FROM sikap, siswa
+$query2 = mysqli_query($connect, "SELECT * FROM sikap, siswa
 					WHERE sikap.id_siswa = siswa.nis
 					AND siswa.nis = '$_POST[tid]'");
-					$no = 1;
-				$data1 = mysqli_fetch_array($query2);
-				$html .= '<tr>
-					<td>'.$data1['nilai_sikap_sosial'].'</td>
-					<td>'.$data1['desk_sikap_sosial'].'</td>
+$no = 1;
+$data1 = mysqli_fetch_array($query2);
+$html .= '<tr>
+					<td>' . $data1['nilai_sikap_sosial'] . '</td>
+					<td>' . $data1['desk_sikap_sosial'] . '</td>
 				</tr>
 			</tbody>
 		</table>';
-		$html .= ' 2.Sikap Spiritual <br>
+$html .= ' 2.Sikap Spiritual <br>
 		<table class="table table-condensed" border="2px">
 			<thead>
 				<tr>
@@ -299,19 +298,19 @@ hr.style{
 			</thead>
 			<tbody>';
 
-				$query2 = mysqli_query($connect, "SELECT * FROM sikap, siswa
+$query2 = mysqli_query($connect, "SELECT * FROM sikap, siswa
 					WHERE sikap.id_siswa = siswa.nis
 					AND siswa.nis = '$_POST[tid]'");
-					$no = 1;
-				$data1 = mysqli_fetch_array($query2);
-				$html .= '<tr>
-					<td>'.$data1['nilai_sikap_spiritual'].'</td>
-					<td>'.$data1['desk_sikap_spiritual'].'</td>
+$no = 1;
+$data1 = mysqli_fetch_array($query2);
+$html .= '<tr>
+					<td>' . $data1['nilai_sikap_spiritual'] . '</td>
+					<td>' . $data1['desk_sikap_spiritual'] . '</td>
 				</tr>
 			</tbody>
 		</table>';
 
-		$html .= '<b>B. Pengetahuan dan Keterampilan <br></b>
+$html .= '<b>B. Pengetahuan dan Keterampilan <br></b>
 		<table class="table table-condensed" border="2px">
 			<thead>
 				<tr>
@@ -331,22 +330,23 @@ hr.style{
 			</thead>
 			<tbody>';
 
-				$query2 = mysqli_query($connect, "SELECT * FROM siswa, nilai, kelas, mapel WHERE siswa.nis = nilai.id_siswa AND nilai.id_mapel = mapel.id_mapel and nilai.id_kelas = kelas.id_kelas and siswa.nis ='$_POST[tid]'");
-					$no = 1;
-				while ($data1 = mysqli_fetch_array($query2)) {
-				$html .= '<tr>
-					<td>'.$no.'</td>
-					<td>'.$data1['nama_mapel'].'</td>
+$query2 = mysqli_query($connect, "SELECT * FROM siswa, nilai, kelas, mapel WHERE siswa.nis = nilai.id_siswa AND nilai.id_mapel = mapel.id_mapel and nilai.id_kelas = kelas.id_kelas and siswa.nis ='$_POST[tid]'");
+$no = 1;
+while ($data1 = mysqli_fetch_array($query2)) {
+	$html .= '<tr>
+					<td>' . $no . '</td>
+					<td>' . $data1['nama_mapel'] . '</td>
 					<td>75</td>
-					<td>'.$data1['nilai_pengetahuan'].'</td>
-					<td>'.$data1['grade_peng'].'</td>
-					<td>'.$data1['nilai_ketrampilan'].'</td>
-					<td>'.$data1['grade_ket'].'</td>
+					<td>' . $data1['nilai_pengetahuan'] . '</td>
+					<td>' . $data1['grade_peng'] . '</td>
+					<td>' . $data1['nilai_ketrampilan'] . '</td>
+					<td>' . $data1['grade_ket'] . '</td>
 				</tr>';
-			$no++; }
-			$html .= '</tbody>
+	$no++;
+}
+$html .= '</tbody>
 		</table>';
-		$html .= '
+$html .= '
 		<table class="table table-condensed" border="2px">
 				<tr>
 						<th rowspan="2">KKM</th>
@@ -377,12 +377,12 @@ hr.style{
 
 			<tr>
 				<td width="100">Nama</td>
-				<td> <u>'.$row['nama_siswa'].'</u> </td>
+				<td> <u>' . $row['nama_siswa'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>NIS</td>
-				<td> <u>'.$row['nis'].'</u> </td>
+				<td> <u>' . $row['nis'] . '</u> </td>
 			</tr>
 		</table>
 		</div>
@@ -390,21 +390,21 @@ hr.style{
 			<table>
 			<tr>
 				<td width="100">Kelas</td>
-				<td> <u>'.$row['nama_kelas'].'</u> </td>
+				<td> <u>' . $row['nama_kelas'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>Semester</td>
-				<td> <u>'.$row['smt'].'</u> </td>
+				<td> <u>' . $row['smt'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>Tahun Pelajaran</td>
-				<td> <u>'.$row['tahun_ajar'].'</u> </td>
+				<td> <u>' . $row['tahun_ajar'] . '</u> </td>
 			</tr>
 			</table>
 		</div></div><br><br><br>';
-		$html .= '<b>Deskripsi Pengetahuan dan Keterampilan <br></b>
+$html .= '<b>Deskripsi Pengetahuan dan Keterampilan <br></b>
 		<table class="table table-condensed" border="2px">
 			<thead>
 				<tr>
@@ -415,22 +415,23 @@ hr.style{
 				</tr>
 			</thead>
 			<tbody>';
-				$query3 = mysqli_query($connect, "SELECT * FROM siswa, nilai, kelas, mapel WHERE siswa.nis = nilai.id_siswa AND nilai.id_mapel = mapel.id_mapel and nilai.id_kelas = kelas.id_kelas and siswa.nis ='$_POST[tid]'");
-					$no = 1;
-				while ($data2 = mysqli_fetch_array($query3)) {
-				$html .= '
+$query3 = mysqli_query($connect, "SELECT * FROM siswa, nilai, kelas, mapel WHERE siswa.nis = nilai.id_siswa AND nilai.id_mapel = mapel.id_mapel and nilai.id_kelas = kelas.id_kelas and siswa.nis ='$_POST[tid]'");
+$no = 1;
+while ($data2 = mysqli_fetch_array($query3)) {
+	$html .= '
 			<tr>
-		        <td rowspan="2">'.$no.'</td>
-				<td rowspan="2">'.$data2['nama_mapel'].'</td>
+		        <td rowspan="2">' . $no . '</td>
+				<td rowspan="2">' . $data2['nama_mapel'] . '</td>
 		        <td>Pengetahuan</td>
-		        <td>'.$data2['desk_peng'].'</td>
+		        <td>' . $data2['desk_peng'] . '</td>
 	      	</tr>
 	      	<tr>
 		        <td>Keterampilan</td>
-		        <td>'.$data2['desk_ket'].'</td>
+		        <td>' . $data2['desk_ket'] . '</td>
 	      	</tr> ';
-			$no++; }
-			$html .= '</tbody>
+	$no++;
+}
+$html .= '</tbody>
 		</table>
 		<div class="row"><div id="kiri">
 		
@@ -442,12 +443,12 @@ hr.style{
 
 			<tr>
 				<td width="100">Nama</td>
-				<td> <u>'.$row['nama_siswa'].'</u> </td>
+				<td> <u>' . $row['nama_siswa'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>NIS</td>
-				<td> <u>'.$row['nis'].'</u> </td>
+				<td> <u>' . $row['nis'] . '</u> </td>
 			</tr>
 		</table>
 		</div>
@@ -455,21 +456,21 @@ hr.style{
 			<table>
 			<tr>
 				<td width="100">Kelas</td>
-				<td> <u>'.$row['nama_kelas'].'</u> </td>
+				<td> <u>' . $row['nama_kelas'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>Semester</td>
-				<td> <u>'.$row['smt'].'</u> </td>
+				<td> <u>' . $row['smt'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>Tahun Pelajaran</td>
-				<td> <u>'.$row['tahun_ajar'].'</u> </td>
+				<td> <u>' . $row['tahun_ajar'] . '</u> </td>
 			</tr>
 			</table>
 		</div></div><br>';
-		$html .= '<b>C. Ekstrakulikuler <br></b>
+$html .= '<b>C. Ekstrakulikuler <br></b>
 		<table class="table table-condensed" border="2px">
 			<thead>
 				<tr>
@@ -480,30 +481,30 @@ hr.style{
 				</tr>
 			</thead>
 			<tbody>';
-				$query3 = mysqli_query($connect, "SELECT * FROM ekskul, siswa
+$query3 = mysqli_query($connect, "SELECT * FROM ekskul, siswa
 					WHERE ekskul.id_siswa = siswa.nis
 					AND siswa.nis = '$_POST[tid]'");
-					$no = 1;
-					if (mysqli_num_rows($query3) > 0) {
-				while ($data2 = mysqli_fetch_array($query3)) {
-				$html .= '<tr>
-					<td>'.$no.'</td>
-					<td>'.$data2['nama_ekskul'].'</td>
-					<td>'.$data2['nilai_ekskul'].'</td>
-					<td>'.$data2['desk_ekskul'].'</td>
+$no = 1;
+if (mysqli_num_rows($query3) > 0) {
+	while ($data2 = mysqli_fetch_array($query3)) {
+		$html .= '<tr>
+					<td>' . $no . '</td>
+					<td>' . $data2['nama_ekskul'] . '</td>
+					<td>' . $data2['nilai_ekskul'] . '</td>
+					<td>' . $data2['desk_ekskul'] . '</td>
 				</tr>';
-			}
-		} else {
-			$html .= '<tr>
+	}
+} else {
+	$html .= '<tr>
 				<td>-</td>
 				<td>-</td>
 				<td>-</td>
 				<td>-</td>
 			</tr>';
-		}
-			$html .= '</tbody>
+}
+$html .= '</tbody>
 		</table>';
-		$html .= '<b>D. Prestasi <br></b>
+$html .= '<b>D. Prestasi <br></b>
 		<table class="table table-condensed" border="2px">
 			<thead>
 				<tr>
@@ -513,51 +514,51 @@ hr.style{
 				</tr>
 			</thead>
 			<tbody>';
-				$query3 = mysqli_query($connect, "SELECT * FROM prestasi, siswa
+$query3 = mysqli_query($connect, "SELECT * FROM prestasi, siswa
 					WHERE prestasi.id_siswa = siswa.nis
 					AND siswa.nis = '$_POST[tid]'");
-					$no = 1;
-					if (mysqli_num_rows($query3) > 0) {
-				while ($data2 = mysqli_fetch_array($query3)) {
-				$html .= '<tr>
-					<td>'.$no.'</td>
-					<td>'.$data2['nama_prestasi'].'</td>
-					<td>'.$data2['deskripsi'].'</td>
+$no = 1;
+if (mysqli_num_rows($query3) > 0) {
+	while ($data2 = mysqli_fetch_array($query3)) {
+		$html .= '<tr>
+					<td>' . $no . '</td>
+					<td>' . $data2['nama_prestasi'] . '</td>
+					<td>' . $data2['deskripsi'] . '</td>
 				</tr>';
-			}
-		}else {
-			$html .= '<tr>
+	}
+} else {
+	$html .= '<tr>
 				<td>-</td>
 				<td>-</td>
 				<td>-</td>
 			</tr>';
-		}
-			$html .= '</tbody>
+}
+$html .= '</tbody>
 		</table>';
-		$html .= '<b>E. Ketidakhadiran <br></b>
+$html .= '<b>E. Ketidakhadiran <br></b>
 		<table class="table table-condensed" border="2px">
 			<tbody>';
-				$query3 = mysqli_query($connect, "SELECT * FROM ketidakhadiran, siswa
+$query3 = mysqli_query($connect, "SELECT * FROM ketidakhadiran, siswa
 					WHERE ketidakhadiran.id_siswa = siswa.nis
 					AND siswa.nis = '$_POST[tid]'");
-					$no = 1;
-					if (mysqli_num_rows($query3) > 0) {
-				while ($data2 = mysqli_fetch_array($query3)) {
-				$html .= '<tr>
+$no = 1;
+if (mysqli_num_rows($query3) > 0) {
+	while ($data2 = mysqli_fetch_array($query3)) {
+		$html .= '<tr>
 					<td width="300px">Sakit </td>
-					<td>'.$data2['sakit'].'</td>
+					<td>' . $data2['sakit'] . '</td>
 					</tr>
 					<tr>
 					<td width="300px">Izin </td>
-					<td>'.$data2['izin'].'</td>
+					<td>' . $data2['izin'] . '</td>
 					</tr>
 					<tr>
 					<td width="300px">Tanpa Keterangan </td>
-					<td>'.$data2['alfa'].'</td>
+					<td>' . $data2['alfa'] . '</td>
 				</tr>';
-			}
-		}else {
-			$html .= '<tr>
+	}
+} else {
+	$html .= '<tr>
 				<td width="300px">Sakit </td>
 				<td> - kali</td>
 			</tr>
@@ -569,8 +570,8 @@ hr.style{
 				<td>Alfa </td>
 				<td> - kali</td>
 			</tr>';
-		}
-			$html .= '</tbody>
+}
+$html .= '</tbody>
 		</table><br><br><br><br><br><br>
 		<div class="row"><div id="kiri">
 		
@@ -582,12 +583,12 @@ hr.style{
 
 			<tr>
 				<td width="100">Nama</td>
-				<td> <u>'.$row['nama_siswa'].'</u> </td>
+				<td> <u>' . $row['nama_siswa'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>NIS</td>
-				<td> <u>'.$row['nis'].'</u> </td>
+				<td> <u>' . $row['nis'] . '</u> </td>
 			</tr>
 		</table>
 		</div>
@@ -595,29 +596,29 @@ hr.style{
 			<table>
 			<tr>
 				<td width="100">Kelas</td>
-				<td> <u>'.$row['nama_kelas'].'</u> </td>
+				<td> <u>' . $row['nama_kelas'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>Semester</td>
-				<td> <u>'.$row['smt'].'</u> </td>
+				<td> <u>' . $row['smt'] . '</u> </td>
 			</tr>
 
 			<tr>
 				<td>Tahun Pelajaran</td>
-				<td> <u>'.$row['tahun_ajar'].'</u> </td>
+				<td> <u>' . $row['tahun_ajar'] . '</u> </td>
 			</tr>
 			</table>
 		</div></div><br><br>';
-		$html .= '<b>F. Catatan wali kelas <br></b>
+$html .= '<b>F. Catatan wali kelas <br></b>
 		<div class="garis_tepi1"></div><br>';
-		$html .= '<b>G. Tanggapan orang tua/wali <br></b>
+$html .= '<b>G. Tanggapan orang tua/wali <br></b>
 		<div class="garis_tepi1"></div><br>';
-		$html .= '<b>Keterangan kenaikan kelas <br></b>
+$html .= '<b>Keterangan kenaikan kelas <br></b>
 		<div class="garis_tepi1">
 		<p style="padding : 15px" align = "center">keterampilan kenaikan kelas : Naik/Tidak Naik Kelas *)</p>
 		</div><br>';
-		$html .='		<div class="row">
+$html .= '		<div class="row">
 		  <div class="column" >
 				<br><br>
 				<p>Orang Tua/Wali</p><br><br><br><br>
@@ -633,10 +634,10 @@ hr.style{
 				NIP.19650129 198903 2 003
 		  </div>
 		  <div class="column">
-		    <p>Susukan, '.date("d M Y").' </p>
+		    <p>Susukan, ' . date("d M Y") . ' </p>
 		    <p>Wali Kelas</p><br><br><br>
-			'.$row['nama_guru'].'
-			<p>NIP.'.$row['wali_kelas'].'</p>
+			' . $row['nama_guru'] . '
+			<p>NIP.' . $row['wali_kelas'] . '</p>
 
 
 		  </div>
@@ -654,5 +655,3 @@ $dompdf->render();
 /* Output the generated PDF to Browser */
 
 $dompdf->stream();
-
-?>
