@@ -29,6 +29,8 @@ include "../lib/inc.session.php";
   <link rel="stylesheet" href="plugins/iCheck/flat/red.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <!-- contume css -->
+  <link rel="stylesheet" href="dist/css/Costume.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -170,7 +172,7 @@ include "../lib/inc.session.php";
           <li class="header">MAIN NAVIGATION</li>
           <li class="active treeview">
             <a href="?page=dashboard">
-              <i class="glyphicon glyphicon-home"></i> <span>Dashboard</span>
+              <i class="glyphicon glyphicon-home"></i> <span>Dashboad</span>
             </a>
           </li>
           <?php
@@ -198,9 +200,9 @@ include "../lib/inc.session.php";
           <?php
           if ($_SESSION['username'] and $r['hak_akses'] == 'Admin') {
           ?>
-            <li><a href="?page=vwUs"><i class="fa fa-user-secret"></i> Admin </a></li>
-            <li><a href="?page=vwGr"><i class="fa  fa-group"></i> Guru </a></li>
-            <li><a href="?page=vwSs"><i class="fa fa-user"></i> Siswa </a></li>
+            <li><a href="?page=vwUs"><i class="fa fa-user-secret side-active"></i> Admin </a></li>
+            <li><a href="?page=vwGr"><i class="fa  fa-group side-active"></i> Guru </a></li>
+            <li><a href="?page=vwSs"><i class="fa fa-user side-active"></i> Siswa </a></li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-graduation-cap"></i> <span>Akademik</span>
@@ -311,6 +313,8 @@ include "../lib/inc.session.php";
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
   <script src="plugins/iCheck/icheck.min.js"></script>
+  <!-- costume javascript -->
+  <script src="dist/js/costume-js.js"></script>
 
 </body>
 

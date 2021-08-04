@@ -78,11 +78,9 @@
 					<div class="col-lg-3 col-xs-6">
 						<!-- small box -->
 						<div class="small-box bg-aqua">
-							<div class="inner">
-								<a href="?page=vwGr">
-									<h3 style="color: white;"><?php echo $jmlguru; ?></h3>
-									<p>Jumlah Guru</p>
-								</a>
+							<div class="inner ommaleka" onclick="location.href='?page=vwGr'">
+								<h3><?php echo $jmlguru; ?></h3>
+								<p>Jumlah Guru</p>
 							</div>
 							<div class="icon">
 								<i class="ion ion-stats-bars"></i>
@@ -93,7 +91,7 @@
 					<div class="col-lg-3 col-xs-6">
 						<!-- small box -->
 						<div class="small-box bg-red">
-							<div class="inner">
+							<div class="inner ommaleka" onclick="location.href='?page=vwKl'">
 								<h3><?php echo $jmlkelas7; ?></h3>
 								<p>Jumlah Kelas VII</p>
 							</div>
@@ -105,11 +103,11 @@
 					<div class="col-lg-3 col-xs-6">
 						<!-- small box -->
 						<div class="small-box bg-red">
-							<div class="inner">
+							<div class="inner ommaleka" onclick="location.href='?page=vwKl'">
 								<h3><?php echo $jmlkelas8; ?></h3>
 								<p>Jumlah Kelas VIII</p>
 							</div>
-							<div class="icon">
+							<div class=" icon">
 								<i class="ion ion-stats-bars"></i>
 							</div>
 						</div>
@@ -117,7 +115,7 @@
 					<div class="col-lg-3 col-xs-6">
 						<!-- small box -->
 						<div class="small-box bg-red">
-							<div class="inner">
+							<div class="inner ommaleka" onclick="location.href='?page=vwKl'">
 								<h3><?php echo $jmlkelas9; ?></h3>
 								<p>Jumlah Kelas IX</p>
 							</div>
@@ -130,7 +128,7 @@
 					<div class="col-lg-3 col-xs-6">
 						<!-- small box -->
 						<div class="small-box bg-orange">
-							<div class="inner">
+							<div class="inner ommaleka" onclick="location.href='?page=vwSs'">
 								<h3><?php echo $jmlsiswa; ?></h3>
 								<p>Jumlah Siswa</p>
 							</div>
@@ -143,7 +141,7 @@
 					<div class="col-lg-3 col-xs-6">
 						<!-- small box -->
 						<div class="small-box bg-orange">
-							<div class="inner">
+							<div class="inner ommaleka" onclick="location.href='?page=vwTh'">
 								<h3><?php echo $jmltahun; ?></h3>
 								<p>Jumlah Tahun Ajar</p>
 							</div>
@@ -157,7 +155,7 @@
 					<div class="col-lg-3 col-xs-6">
 						<!-- small box -->
 						<div class="small-box bg-green">
-							<div class="inner">
+							<div class="inner ommaleka" onclick="location.href='?page=vwUs'">
 								<h3><?php echo $jml_user; ?></h3>
 								<p>Jumlah Admin (Aktif)</p>
 							</div>
@@ -171,7 +169,7 @@
 					<div class="col-lg-3 col-xs-6">
 						<!-- small box -->
 						<div class="small-box bg-red">
-							<div class="inner">
+							<div class="inner ommaleka">
 								<h3><?php echo $jml_wali; ?></h3>
 								<p>Jumlah Kelas</p>
 							</div>
