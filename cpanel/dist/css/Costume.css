@@ -1,7 +1,17 @@
-.ommaleka{
+*{
+    margin: 0;
+    padding: 0;
+
+
+}
+.change-page{
     color:white;
     cursor:pointer;
 }
 .side-active:onclick{
+    
+}
+.card-body li{
+    list-style: none;
     
 }

@@ -200,9 +200,13 @@ include "../lib/inc.session.php";
           <?php
           if ($_SESSION['username'] and $r['hak_akses'] == 'Admin') {
           ?>
-            <li><a href="?page=vwUs"><i class="fa fa-user-secret side-active"></i> Admin </a></li>
-            <li><a href="?page=vwGr"><i class="fa  fa-group side-active"></i> Guru </a></li>
-            <li><a href="?page=vwSs"><i class="fa fa-user side-active"></i> Siswa </a></li>
+            <li>
+              <a href="?page=vwUs">
+                <i class="fa fa-user-secret"></i> Admin
+              </a>
+            </li>
+            <li><a href="?page=vwGr"><i class="fa  fa-group"></i> Guru </a></li>
+            <li><a href="?page=vwSs"><i class="fa fa-user"></i> Siswa </a></li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-graduation-cap"></i> <span>Akademik</span>
